@@ -19,5 +19,5 @@ module.exports.writeVersion = function (contents, version) {
   json.changelog = `${githubRawURL}/${repository}/v${version}/CHANGELOG.md`;
   json.version = version;
   json.download = `${githubURL}/${repository}/releases/download/v${version}/module.zip`;
-  return stringifyPackage(json, 4);
+  return stringifyPackage(json, 2);
 };
