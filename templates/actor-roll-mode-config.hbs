@@ -1,0 +1,25 @@
+{{!--
+SPDX-FileCopyrightText: 2022 Johannes Loher
+//
+SPDX-License-Identifier: MIT
+--}}
+
+<form class="{{cssClasses}}" autocomplete="off">
+  <div class="form-group">
+    <label for="flags.per-actor-roll-mode.roll-mode-{{data._id}}">{{ localize 'PER_ACTOR_ROLL_MODE.RollModeOverride'
+      }}</label>
+    <div class="form-fields">
+      <select id="flags.per-actor-roll-mode.roll-mode-{{data._id}}" name="flags.per-actor-roll-mode.roll-mode"
+        data-dtype="String">
+        {{#select data.flags.per-actor-roll-mode.roll-mode}}
+        {{#each rollModes as |value key|}}
+        <option value="{{key}}">{{localize value}}</option>
+        {{/each}}
+        {{/select}}
+      </select>
+    </div>
+  </div>
+
+  <button type="submit" name="submit" value="1"><i class="far fa-save"></i> {{localize
+    "PER_ACTOR_ROLL_MODE.Save"}}</button>
+</form>

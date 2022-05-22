@@ -1,0 +1,10 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: per-actor-roll-mode
+Upstream-Contact: Johannes Loher <johannes.loher@fg4f.de>
+Source: https://github.com/ghost-fvtt/per-actor-roll-mode
+
+# Sample paragraph, commented out:
+#
+# Files: src/*
+# Copyright: $YEAR $NAME <$CONTACT>
+# License: ...

@@ -1,0 +1,7 @@
+{
+  "PER_ACTOR_ROLL_MODE.RollMode": "Roll Mode",
+  "PER_ACTOR_ROLL_MODE.RollModeOverride": "Roll Mode Override",
+  "PER_ACTOR_ROLL_MODE.RollUnset": "Unset",
+  "PER_ACTOR_ROLL_MODE.Save": "Save",
+  "PER_ACTOR_ROLL_MODE.WarningLackingPermissionToConfigure": "You don not have the permissions"
+}
