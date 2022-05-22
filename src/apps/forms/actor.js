@@ -9,18 +9,20 @@ export const registerActorSheetFunctionality = () => {
 };
 
 const getActorSheetHeaderButtons = (actorSheet, buttons) => {
-  const rollMode = actorSheet.actor.getFlag(packageId, 'roll-mode');
-  buttons.unshift({
-    label: getLabelForRollMode(rollMode),
-    class: 'roll-mode',
-    icon: 'fas fa-dice-d20',
-    onclick: () => {
-      const actorRollModeConfig =
-        Object.values(actorSheet.actor.apps).find((app) => app instanceof ActorRollModeConfig) ??
-        new ActorRollModeConfig(actorSheet.actor);
-      actorRollModeConfig.render(true);
-    },
-  });
+  if (actorSheet.isEditable) {
+    const rollMode = actorSheet.actor.getFlag(packageId, 'roll-mode');
+    buttons.unshift({
+      label: getLabelForRollMode(rollMode),
+      class: 'roll-mode',
+      icon: 'fas fa-dice-d20',
+      onclick: () => {
+        const actorRollModeConfig =
+          Object.values(actorSheet.actor.apps).find((app) => app instanceof ActorRollModeConfig) ??
+          new ActorRollModeConfig(actorSheet.actor);
+        actorRollModeConfig.render(true);
+      },
+    });
+  }
 };
 
 const getLabelForRollMode = (rollMode) =>
@@ -31,7 +33,7 @@ class ActorRollModeConfig extends FormApplication {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['actor-roll-mode-config'],
       template: `modules/per-actor-roll-mode/templates/actor-roll-mode-config.hbs`,
-      width: 480,
+      width: 400,
       height: 'auto',
     });
   }
@@ -44,18 +46,28 @@ class ActorRollModeConfig extends FormApplication {
     return `${this.object.name}: ${game.i18n.localize('PER_ACTOR_ROLL_MODE.RollModeOverride')}`;
   }
 
-  async getData() {
-    const rollMode = this.object.getFlag(packageId, 'roll-mode') ?? 'unset';
+  get isEditable() {
+    let editable = this.options['editable'] && this.object.isOwner;
+    if (this.object.pack) {
+      const pack = game.packs.get(this.object.pack);
+      if (pack.locked) editable = false;
+    }
+    return editable;
+  }
 
+  async getData() {
+    const isEditable = this.isEditable;
     return {
-      rollMode,
+      cssClass: isEditable ? 'editable' : 'locked',
+      editable: isEditable,
+      rollMode: this.object.getFlag(packageId, 'roll-mode') ?? 'unset',
       data: this.object.data,
       rollModes: { unset: 'PER_ACTOR_ROLL_MODE.RollUnset', ...CONFIG.Dice.rollModes },
     };
   }
 
   async render(force, options = {}) {
-    if (!this.object.compendium && !this.object.testUserPermission(game.user, this.options.viewPermission)) {
+    if (!this.object.compendium && !this.object.testUserPermission(game.user, CONST.DOCUMENT_PERMISSION_LEVELS.OWNER)) {
       if (!force) return this; // If rendering is not being forced, fail silently
       const err = game.i18n.localize('SHEETS.DocumentSheetPrivate');
       ui.notifications.warn(err);
