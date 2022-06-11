@@ -9,14 +9,10 @@ export const registerChatMessageFunctionality = () => {
 };
 
 const preCreateChatMessage = (chatMessage, data, options) => {
-  if (chatMessage.isRoll) {
-    const actor = ChatMessage.getSpeakerActor(chatMessage.data.speaker);
-    if (actor) {
-      const rollMode = actor.getFlag(packageId, 'roll-mode');
-      if (rollMode !== undefined) {
-        chatMessage.applyRollMode(rollMode);
-        options.rollMode = rollMode;
-      }
-    }
+  const actor = ChatMessage.getSpeakerActor(chatMessage.data.speaker);
+  const rollMode = actor?.getFlag(packageId, 'roll-mode');
+  if (rollMode !== undefined) {
+    chatMessage.applyRollMode(rollMode);
+    options.rollMode = rollMode;
   }
 };
