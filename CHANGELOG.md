@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/ghost-fvtt/per-actor-roll-mode/compare/v1.0.0...v1.1.0) (2022-06-11)
+
+
+### Features
+
+* apply roll mode override to all chat messages ([3ef5af3](https://github.com/ghost-fvtt/per-actor-roll-mode/commit/3ef5af324b0ba0295becd2b68b40503386de683a))
+
 ## 1.0.0 (2022-05-22)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "per-actor-roll-mode",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A module for Foundry Virtual Tabletop that allows overriding the selected roll mode on a per-actor basis.",
   "private": true,
   "scripts": {
