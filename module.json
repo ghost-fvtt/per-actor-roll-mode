@@ -12,11 +12,11 @@
     }
   ],
   "url": "https://github.com/ghost-fvtt/per-actor-roll-mode",
-  "license": "https://raw.githubusercontent.com/ghost-fvtt/per-actor-roll-mode/v1.1.0/LICENSE.md",
-  "readme": "https://raw.githubusercontent.com/ghost-fvtt/per-actor-roll-mode/v1.1.0/README.md",
+  "license": "https://raw.githubusercontent.com/ghost-fvtt/per-actor-roll-mode/v1.2.0/LICENSE.md",
+  "readme": "https://raw.githubusercontent.com/ghost-fvtt/per-actor-roll-mode/v1.2.0/README.md",
   "bugs": "https://github.com/ghost-fvtt/per-actor-roll-mode/issues",
-  "changelog": "https://raw.githubusercontent.com/ghost-fvtt/per-actor-roll-mode/v1.1.0/CHANGELOG.md",
-  "version": "1.1.0",
+  "changelog": "https://raw.githubusercontent.com/ghost-fvtt/per-actor-roll-mode/v1.2.0/CHANGELOG.md",
+  "version": "1.2.0",
   "minimumCoreVersion": "9.238",
   "compatibleCoreVersion": "10",
   "compatibility": {
@@ -32,6 +32,6 @@
     }
   ],
   "manifest": "https://github.com/ghost-fvtt/per-actor-roll-mode/releases/latest/download/module.json",
-  "download": "https://github.com/ghost-fvtt/per-actor-roll-mode/releases/download/v1.1.0/module.zip",
+  "download": "https://github.com/ghost-fvtt/per-actor-roll-mode/releases/download/v1.2.0/module.zip",
   "manifestPlusVersion": "1.2.0"
 }
