@@ -1,5 +1,6 @@
 {
   "name": "per-actor-roll-mode",
+  "id": "per-actor-roll-mode",
   "title": "Per Actor Roll Mode",
   "description": "A module for Foundry Virtual Tabletop that allows overriding the selected roll mode on a per-actor basis.",
   "authors": [
@@ -17,7 +18,11 @@
   "changelog": "https://raw.githubusercontent.com/ghost-fvtt/per-actor-roll-mode/v1.1.0/CHANGELOG.md",
   "version": "1.1.0",
   "minimumCoreVersion": "9.238",
-  "compatibleCoreVersion": "9",
+  "compatibleCoreVersion": "10",
+  "compatibility": {
+    "minimum": "9.238",
+    "verified": "10"
+  },
   "esmodules": ["per-actor-roll-mode.js"],
   "languages": [
     {

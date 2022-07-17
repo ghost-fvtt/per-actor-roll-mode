@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: MIT
 
 import { packageId } from '../../constants.js';
+import { isGenerationOrLater } from '../../helpers.js';
 
 export const registerActorSheetFunctionality = () => {
   Hooks.on('getActorSheetHeaderButtons', getActorSheetHeaderButtons);
@@ -61,7 +62,7 @@ class ActorRollModeConfig extends FormApplication {
       cssClass: isEditable ? 'editable' : 'locked',
       editable: isEditable,
       rollMode: this.object.getFlag(packageId, 'roll-mode') ?? 'unset',
-      data: this.object.data,
+      data: isGenerationOrLater(10) ? this.object : this.object.data,
       rollModes: { unset: 'PER_ACTOR_ROLL_MODE.RollUnset', ...CONFIG.Dice.rollModes },
     };
   }
